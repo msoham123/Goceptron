@@ -138,16 +138,16 @@ func dogTest() {
 	/* Alpha value in gradient descent 
 	controls how large (or small) we move
 	so is learning rate*/
-	alpha := 0.001
+	alpha := 0.05
 
 	/* Values to resize the image by
 	Making this smaller will allow 
 	for faster training runs at cost of accuracy
 	*/
-	sizeX, sizeY := 500, 500
+	sizeX, sizeY := 600, 600
 
 	// How many images to use for training
-	imageCap := 200
+	imageCap := 40
 	// -----------
 
 	fmt.Println("Running Dog Perceptron test...")
