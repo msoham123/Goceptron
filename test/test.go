@@ -22,6 +22,12 @@ func main() {
 			xorTest()
 		case "-not":
 			notTest()
+		case "-all":
+			orTest()
+			andTest()
+			xorTest()
+			notTest()
+			break;
 		default:
 			fmt.Printf("[GOCEPTRON]: Invalid argument \"%s\"\n", arg)
 		}
