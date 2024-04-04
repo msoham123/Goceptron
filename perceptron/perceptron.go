@@ -50,6 +50,7 @@ func activationFunction(dot float64) int {
 func dotProduct(a []float64, b []float64) (result float64) {
 	// Length checking, else throw error
 	if len(a) != len(b) {
+		fmt.Printf("a is %d and b is %d\n", len(a), len(b))
 		panic("dotProduct: Input vectors a and b do not have the same length!")
 	}
 
@@ -139,7 +140,7 @@ func PredictOnSet(p *Perceptron, testSet [][]float64, targets []int) (pred []int
 		panic("PredictOnSet: testSet and targets must have same length!")
 	}
 
-	fmt.Print("[GOCEPTRON]: Beginning prediction using perceptron...\n\n")
+	fmt.Print("[GOCEPTRON]: Beginning prediction using perceptron...\n")
 
 	// Take dot of input data and weights and apply activation function
 	pred = make([]int, len(testSet))
@@ -148,7 +149,7 @@ func PredictOnSet(p *Perceptron, testSet [][]float64, targets []int) (pred []int
 	for i := range testSet {
 		pred[i] = Predict(p, testSet[i])
 
-		fmt.Printf("\t> data = {%v}, target = %d, pred = %d\n", testSet[i], targets[i], pred[i])
+		// fmt.Printf("\t> data = {%v}, target = %d, pred = %d\n", testSet[i], targets[i], pred[i])
 
 		if pred[i] == targets[i] {
 			count++
@@ -156,7 +157,7 @@ func PredictOnSet(p *Perceptron, testSet [][]float64, targets []int) (pred []int
 	}
 
 	// Print success stats
-	fmt.Printf("\n[GOCEPTRON] Accuracy of run was %f percent\n\n", (float64(count) / float64(len(testSet)) * 100))
+	fmt.Printf("\n[GOCEPTRON] Accuracy of run was %f percent\n", (float64(count) / float64(len(testSet)) * 100))
 
 	return pred
 }
